@@ -235,7 +235,7 @@ div[data-testid="stMetricLabel"] {{
 # =========================================================
 # TITLE
 # =========================================================
-st.title("🚢 Ferry Ticket Analytics Dashboard")
+st.title("Ferry Ticket Analytics Dashboard")
 st.subheader("Real-Time Passenger Flow Insights")
 
 # =========================================================
@@ -266,7 +266,7 @@ df = load_data()
 # =========================================================
 with st.sidebar:
 
-    st.header("🎯 Filters")
+    st.header("Filters")
 
     date_range = st.date_input(
         "Date Range",
@@ -288,7 +288,7 @@ with st.sidebar:
 
     st.markdown("---")
 
-    st.header("📌 About Project")
+    st.header("About Project")
 
     st.write("""
     This dashboard analyzes ferry passenger activity,
@@ -298,15 +298,15 @@ with st.sidebar:
 
     st.markdown("---")
 
-    st.header("🧠 Insights")
+    st.header("Insights")
 
     peak_hour = df.groupby('Hour')['Sales'].sum().idxmax()
     busiest_day = df.groupby('Day')['Sales'].sum().idxmax()
     busiest_month = df.groupby('Month')['Sales'].sum().idxmax()
 
-    st.success(f"🔥 Peak Hour: {peak_hour}:00")
-    st.info(f"📅 Busiest Day: {busiest_day}")
-    st.info(f"📈 Busiest Month: {busiest_month}")
+    st.success(f"Peak Hour: {peak_hour}:00")
+    st.info(f"Busiest Day: {busiest_day}")
+    st.info(f" Busiest Month: {busiest_month}")
 
 # =========================================================
 # FILTERING
@@ -338,7 +338,7 @@ if filtered_df.empty:
 # =========================================================
 # KPIs
 # =========================================================
-st.markdown("## 📊 KPIs")
+st.markdown("##  KPIs")
 
 c1, c2, c3 = st.columns(3)
 
@@ -360,7 +360,7 @@ c3.metric(
 # =========================================================
 # ALERTS
 # =========================================================
-st.markdown("## 🚨 Alerts")
+st.markdown("##  Alerts")
 
 util = (
     filtered_df['Redemption'].sum()
@@ -369,19 +369,19 @@ util = (
 
 if util > 80:
     st.markdown(
-        '<div class="alert-success">✅ High redemption rate detected.</div>',
+        '<div class="alert-success"> High redemption rate detected.</div>',
         unsafe_allow_html=True
     )
 
 elif util > 50:
     st.markdown(
-        '<div class="alert-warning">⚠️ Moderate redemption activity.</div>',
+        '<div class="alert-warning"> Moderate redemption activity.</div>',
         unsafe_allow_html=True
     )
 
 else:
     st.markdown(
-        '<div class="alert-danger">⛔ Low redemption activity detected.</div>',
+        '<div class="alert-danger"> Low redemption activity detected.</div>',
         unsafe_allow_html=True
     )
 
@@ -409,8 +409,8 @@ fig1.update_layout(
 )
 
 st.plotly_chart(fig1, use_container_width=True)
-# ✅ DATASET BELOW GRAPH 1
-with st.expander("📊 View Data"):
+# DATASET BELOW GRAPH 1
+with st.expander(" View Data"):
 
     st.download_button(
         "⬇ Download Time Series Data",
@@ -450,8 +450,8 @@ fig2.update_layout(
 
 st.plotly_chart(fig2, use_container_width=True)
 
-# ✅ DATASET BELOW GRAPH 2
-with st.expander("📊 View Data"):
+#  DATASET BELOW GRAPH 2
+with st.expander(" View Data"):
 
     st.download_button(
         "⬇ Download Hourly Data",
@@ -489,8 +489,8 @@ fig3.update_layout(
 
 st.plotly_chart(fig3, use_container_width=True)
 
-# ✅ DATASET BELOW GRAPH 3
-with st.expander("📊 View Data"):
+#  DATASET BELOW GRAPH 3
+with st.expander(" View Data"):
 
     st.download_button(
         "⬇ Download Net Movement Data",
@@ -528,8 +528,8 @@ fig4.update_layout(
 )
 
 st.plotly_chart(fig4, use_container_width=True)
-# ✅ DATASET BELOW PIE CHART
-with st.expander("📊 View Data"):
+#  DATASET BELOW PIE CHART
+with st.expander(" View Data"):
 
     st.download_button(
         "⬇ Download Day Sales Data",
@@ -547,7 +547,7 @@ with st.expander("📊 View Data"):
 # ML PREDICTION
 # =========================================================
 st.markdown("---")
-st.markdown("## 🤖 Passenger Prediction")
+st.markdown("##  Passenger Prediction")
 
 hourly_agg = filtered_df.groupby(
     'Hour'
@@ -595,7 +595,7 @@ fig_ml.update_layout(
 st.plotly_chart(fig_ml, use_container_width=True)
 
 # ✅ DATASET BELOW ML GRAPH
-with st.expander("📊 View Prediction Data"):
+with st.expander(" View Prediction Data"):
 
     st.download_button(
         "⬇ Download Prediction Data",
@@ -613,7 +613,7 @@ with st.expander("📊 View Prediction Data"):
 # REAL-TIME SIMULATION
 # =========================================================
 st.markdown("---")
-st.markdown("## 🔴 Real-Time Simulation")
+st.markdown("##  Real-Time Simulation")
 
 run_sim = st.button("▶ Start Simulation")
 
@@ -660,7 +660,7 @@ if run_sim:
 # FULL DATASET
 # =========================================================
 st.markdown("---")
-st.markdown("## 📂 Full Dataset")
+st.markdown("## Full Dataset")
 
 st.download_button(
     "⬇ Download Full Data",
